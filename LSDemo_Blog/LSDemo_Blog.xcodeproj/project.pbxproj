@@ -13,6 +13,7 @@
 		514954F51F7904280089675D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514954F41F7904280089675D /* Assets.xcassets */; };
 		514954F81F7904280089675D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 514954F61F7904280089675D /* LaunchScreen.storyboard */; };
 		514954FB1F7904280089675D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 514954FA1F7904280089675D /* main.m */; };
+		514955051F79058B0089675D /* ConstraintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514955041F79058B0089675D /* ConstraintViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		514954F71F7904280089675D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		514954F91F7904280089675D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		514954FA1F7904280089675D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		514955031F79058B0089675D /* ConstraintViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstraintViewController.h; sourceTree = "<group>"; };
+		514955041F79058B0089675D /* ConstraintViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConstraintViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		514954EA1F7904280089675D /* LSDemo_Blog */ = {
 			isa = PBXGroup;
 			children = (
+				514955021F7904FE0089675D /* Constraint */,
 				514954EB1F7904280089675D /* AppDelegate.h */,
 				514954EC1F7904280089675D /* AppDelegate.m */,
 				514954EE1F7904280089675D /* ViewController.h */,
@@ -69,6 +73,15 @@
 				514954FA1F7904280089675D /* main.m */,
 			);
 			path = LSDemo_Blog;
+			sourceTree = "<group>";
+		};
+		514955021F7904FE0089675D /* Constraint */ = {
+			isa = PBXGroup;
+			children = (
+				514955031F79058B0089675D /* ConstraintViewController.h */,
+				514955041F79058B0089675D /* ConstraintViewController.m */,
+			);
+			path = Constraint;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				514954F01F7904280089675D /* ViewController.m in Sources */,
+				514955051F79058B0089675D /* ConstraintViewController.m in Sources */,
 				514954FB1F7904280089675D /* main.m in Sources */,
 				514954ED1F7904280089675D /* AppDelegate.m in Sources */,
 			);
