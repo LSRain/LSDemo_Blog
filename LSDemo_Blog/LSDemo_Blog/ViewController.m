@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ConstraintViewController.h"
 
 @interface ViewController ()
 
@@ -14,11 +15,21 @@
 
 @implementation ViewController
 
+
+- (void)pushBtnClick{
+    [self.navigationController pushViewController:[ConstraintViewController new] animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    UIButton *pushBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 40, 40)];
+    pushBtn.backgroundColor = [UIColor redColor];
+    [pushBtn setTitle:@"push" forState:UIControlStateNormal];
+    [self.view addSubview:pushBtn];
+    [pushBtn addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
