@@ -14,6 +14,7 @@
 		514954F81F7904280089675D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 514954F61F7904280089675D /* LaunchScreen.storyboard */; };
 		514954FB1F7904280089675D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 514954FA1F7904280089675D /* main.m */; };
 		514955051F79058B0089675D /* ConstraintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 514955041F79058B0089675D /* ConstraintViewController.m */; };
+		51D8EF711F7A02300086610D /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D8EF701F7A02300086610D /* NoticeViewController.m */; };
 		5BE52C267EAA68079BA346F7 /* libPods-LSDemo_Blog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA053730ECBE150B0594D21 /* libPods-LSDemo_Blog.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,8 @@
 		514954FA1F7904280089675D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		514955031F79058B0089675D /* ConstraintViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstraintViewController.h; sourceTree = "<group>"; };
 		514955041F79058B0089675D /* ConstraintViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConstraintViewController.m; sourceTree = "<group>"; };
+		51D8EF6F1F7A02300086610D /* NoticeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		51D8EF701F7A02300086610D /* NoticeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
 		5F7B41AA1175137F5FE18B0E /* Pods-LSDemo_Blog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSDemo_Blog.release.xcconfig"; path = "Pods/Target Support Files/Pods-LSDemo_Blog/Pods-LSDemo_Blog.release.xcconfig"; sourceTree = "<group>"; };
 		60FD912F67222449C6375EAA /* Pods-LSDemo_Blog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSDemo_Blog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LSDemo_Blog/Pods-LSDemo_Blog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +79,7 @@
 		514954EA1F7904280089675D /* LSDemo_Blog */ = {
 			isa = PBXGroup;
 			children = (
+				51D8EF6E1F7A02170086610D /* Notice */,
 				514955021F7904FE0089675D /* Constraint */,
 				514954EB1F7904280089675D /* AppDelegate.h */,
 				514954EC1F7904280089675D /* AppDelegate.m */,
@@ -97,6 +101,15 @@
 				514955041F79058B0089675D /* ConstraintViewController.m */,
 			);
 			path = Constraint;
+			sourceTree = "<group>";
+		};
+		51D8EF6E1F7A02170086610D /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				51D8EF6F1F7A02300086610D /* NoticeViewController.h */,
+				51D8EF701F7A02300086610D /* NoticeViewController.m */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 		D3012D92B0CC816C5149453D /* Pods */ = {
@@ -232,6 +245,7 @@
 			files = (
 				514954F01F7904280089675D /* ViewController.m in Sources */,
 				514955051F79058B0089675D /* ConstraintViewController.m in Sources */,
+				51D8EF711F7A02300086610D /* NoticeViewController.m in Sources */,
 				514954FB1F7904280089675D /* main.m in Sources */,
 				514954ED1F7904280089675D /* AppDelegate.m in Sources */,
 			);
