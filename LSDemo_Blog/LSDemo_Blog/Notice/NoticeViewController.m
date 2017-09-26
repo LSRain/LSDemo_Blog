@@ -7,6 +7,7 @@
 //
 
 #import "NoticeViewController.h"
+#import "NoticeViewController_Sec_ViewController.h"
 
 @interface NoticeViewController ()
 
@@ -15,8 +16,8 @@
 @implementation NoticeViewController
 
 - (void)notiAction{
-    UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 500, 60, 40)];
-    showLabel.text = @"LSRain.";
+    UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 500, 90, 40)];
+    showLabel.text = @"One";
     [self.view addSubview:showLabel];
     showLabel.alpha = 0;
     
@@ -25,13 +26,26 @@
     }];
 }
 
-- (void)notiBtnClick{
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)notiActionTwo{
+    UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 500, 90, 40)];
+    showLabel.text = @"Two";
+    [self.view addSubview:showLabel];
+    showLabel.alpha = 0;
+    
+    [UIView animateWithDuration:5.0 animations:^{
+        showLabel.alpha = 1;
+    }];
+}
+
+- (void)pushBtnClick{
+    [self.navigationController pushViewController:[NoticeViewController_Sec_ViewController new] animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"test" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"notiOne" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionTwo) name:@"notiTwo" object:nil];
 }
 
 - (void)viewDidLoad {
@@ -41,10 +55,10 @@
     self.view.backgroundColor = [UIColor blueColor];
     
     UIButton *notiBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 200, 90, 40)];
-    notiBtn.backgroundColor = [UIColor redColor];
-    [notiBtn setTitle:@"Send NOTI" forState:UIControlStateNormal];
+    notiBtn.backgroundColor = [UIColor blackColor];
+    [notiBtn setTitle:@"push" forState:UIControlStateNormal];
     [self.view addSubview:notiBtn];
-    [notiBtn addTarget:self action:@selector(notiBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [notiBtn addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"test" object:nil];
 }
