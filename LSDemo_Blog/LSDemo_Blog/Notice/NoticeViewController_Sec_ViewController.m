@@ -14,6 +14,7 @@
 
 @implementation NoticeViewController_Sec_ViewController
 
+
 - (void)notiBtnClick{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTITwo" object:nil];
     [self.navigationController popViewControllerAnimated:YES];

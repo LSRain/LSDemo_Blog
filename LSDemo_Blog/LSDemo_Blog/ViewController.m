@@ -18,6 +18,11 @@
 @implementation ViewController
 
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"NOTIOne" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"NOTITwo" object:nil];
+}
+
 - (void)notiActionOne{
     UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 500, 90, 40)];
     showLabel.text = @"One";
