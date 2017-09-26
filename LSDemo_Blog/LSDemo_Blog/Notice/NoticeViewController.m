@@ -15,7 +15,8 @@
 
 @implementation NoticeViewController
 
-- (void)notiAction{
+
+- (void)notiOneAction{
     UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 500, 90, 40)];
     showLabel.text = @"One";
     [self.view addSubview:showLabel];
@@ -41,17 +42,9 @@
     [self.navigationController pushViewController:[NoticeViewController_Sec_ViewController new] animated:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"notiOne" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionTwo) name:@"notiTwo" object:nil];
-}
+#pragma mark - UI setup
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+- (void)setupUI{
     self.view.backgroundColor = [UIColor blueColor];
     
     UIButton *notiBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 200, 90, 40)];
@@ -59,8 +52,29 @@
     [notiBtn setTitle:@"push" forState:UIControlStateNormal];
     [self.view addSubview:notiBtn];
     [notiBtn addTarget:self action:@selector(pushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"test" object:nil];
+    /*
+     - Don't addObserver here...
+     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiOneAction) name:@"NOTIOne" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionTwo) name:@"NOTITwo" object:nil];
+     */
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    [self setupUI];
+    
+    // add Noti
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiOneAction) name:@"NOTIOne" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionTwo) name:@"NOTITwo" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

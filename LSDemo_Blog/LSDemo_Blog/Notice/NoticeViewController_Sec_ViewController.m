@@ -15,14 +15,13 @@
 @implementation NoticeViewController_Sec_ViewController
 
 - (void)notiBtnClick{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notiTwo" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTITwo" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+#pragma mark - UI setup
+
+- (void)setupUI{
     self.view.backgroundColor = [UIColor yellowColor];
     
     UIButton *notiBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 200, 90, 40)];
@@ -30,6 +29,13 @@
     [notiBtn setTitle:@"Send NOTI" forState:UIControlStateNormal];
     [self.view addSubview:notiBtn];
     [notiBtn addTarget:self action:@selector(notiBtnClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {

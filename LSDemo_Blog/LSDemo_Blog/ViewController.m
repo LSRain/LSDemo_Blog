@@ -18,7 +18,7 @@
 @implementation ViewController
 
 
-- (void)notiAction{
+- (void)notiActionOne{
     UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 500, 90, 40)];
     showLabel.text = @"One";
     [self.view addSubview:showLabel];
@@ -40,19 +40,12 @@
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"notiOne" object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionTwo) name:@"notiTwo" object:nil];
-}
-
 - (void)notiTwoBtnClick{
     [self.navigationController pushViewController:[NoticeViewController_Sec_ViewController new] animated:YES];
 }
 
 - (void)notiOneBtnClick{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notiOne" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIOne" object:nil];
     [self.navigationController pushViewController:[NoticeViewController new] animated:YES];
 }
 
@@ -60,10 +53,9 @@
     [self.navigationController pushViewController:[ConstraintViewController new] animated:YES];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
+#pragma mark - UI setup
+
+- (void)setupUI{
     UIButton *pushBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 40, 40)];
     pushBtn.backgroundColor = [UIColor redColor];
     [pushBtn setTitle:@"push" forState:UIControlStateNormal];
@@ -81,6 +73,25 @@
     [notiTwoBtn setTitle:@"notiTwo" forState:UIControlStateNormal];
     [self.view addSubview:notiTwoBtn];
     [notiTwoBtn addTarget:self action:@selector(notiTwoBtnClick) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    /*
+     - Don't addObserver here...
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionOne) name:@"NOTIOne" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionTwo) name:@"NOTITwo" object:nil];
+     */
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self setupUI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionOne) name:@"NOTIOne" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiActionTwo) name:@"NOTITwo" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
