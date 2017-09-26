@@ -15,25 +15,24 @@
 @implementation NoticeViewController
 
 - (void)notiAction{
-    UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 40, 40)];
+    UILabel *showLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 500, 60, 40)];
     showLabel.text = @"LSRain.";
     [self.view addSubview:showLabel];
     showLabel.alpha = 0;
     
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:5.0 animations:^{
         showLabel.alpha = 1;
     }];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"Noti" object:nil];
+- (void)notiBtnClick{
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"test" object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"Noti" object:nil];
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"test" object:nil];
 }
 
 - (void)viewDidLoad {
@@ -41,6 +40,12 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor blueColor];
+    
+    UIButton *notiBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 200, 90, 40)];
+    notiBtn.backgroundColor = [UIColor redColor];
+    [notiBtn setTitle:@"Send NOTI" forState:UIControlStateNormal];
+    [self.view addSubview:notiBtn];
+    [notiBtn addTarget:self action:@selector(notiBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {

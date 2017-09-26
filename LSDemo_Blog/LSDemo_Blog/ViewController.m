@@ -18,16 +18,12 @@
 
 
 - (void)notiBtnClick{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Noti" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"test" object:nil];
     [self.navigationController pushViewController:[NoticeViewController new] animated:YES];
 }
 
 - (void)pushBtnClick{
     [self.navigationController pushViewController:[ConstraintViewController new] animated:YES];
-}
-
-- (void)removeObserver:(id)observer{
-    NSLog(@"====%@ remove===", [observer class]);
 }
 
 - (void)viewDidLoad {
