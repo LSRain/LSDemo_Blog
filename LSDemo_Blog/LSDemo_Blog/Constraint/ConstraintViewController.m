@@ -18,29 +18,23 @@
 #pragma mark - UI setup
 
 - (void)setupUI{
-    
-//     有其他控件依赖时需要宽
-     UILabel *bikeTitleLabel = [UILabel new];
+    UILabel *bikeTitleLabel = [UILabel new];
     [bikeTitleLabel setText:@"bikeTitle"];
     [bikeTitleLabel setTextColor:[UIColor blueColor]];
-     [self.view addSubview:bikeTitleLabel];
-     [bikeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-     //        make.left.equalTo(spaceLineImgView.mas_centerX).offset(-4);
-     //        make.centerY.offset(0);
-     make.right.offset(0);
-     make.top.offset(84);
-     //        make.size.mas_equalTo(CGSizeMake(40, 40));
-//             make.height.equalTo(@60);
-     }];
+    [self.view addSubview:bikeTitleLabel];
+    [bikeTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.offset(0);
+        make.top.offset(84);
+    }];
      
     UILabel *bikeNOLabel = [UILabel new];
     [bikeNOLabel setText:@"No"];
     [bikeNOLabel setTextColor:[UIColor blueColor]];
-     [self.view addSubview:bikeNOLabel];
-     [bikeNOLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.equalTo(bikeTitleLabel.mas_bottom);
-     make.centerX.equalTo(bikeTitleLabel);
-     }];
+    [self.view addSubview:bikeNOLabel];
+    [bikeNOLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(bikeTitleLabel);
+        make.left.equalTo(bikeTitleLabel.mas_right).offset(10);
+    }];
 }
 
 - (void)viewDidLoad {
