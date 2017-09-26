@@ -26,7 +26,6 @@
 }
 
 - (void)notiBtnClick{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"test" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -46,6 +45,8 @@
     [notiBtn setTitle:@"Send NOTI" forState:UIControlStateNormal];
     [self.view addSubview:notiBtn];
     [notiBtn addTarget:self action:@selector(notiBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notiAction) name:@"test" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
